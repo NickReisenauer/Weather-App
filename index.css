@@ -3,16 +3,23 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+button {
+  margin: 0 auto;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid red; */
 }
 
-img {
-  width: 100px;
-  height: 100px;
+#icon {
+  min-width: 100px;
+  min-height: 100px;
 }
 
 #temp {
@@ -21,4 +28,11 @@ img {
 
 #location {
   margin-top: 2px;
+}
+
+#locationIcon {
+  display: flex;
+  height: 22px;
+  width: 22px;
+  padding-right: 15px;
 }
