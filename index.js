@@ -48,6 +48,7 @@ const weatherAPI = (lat, long) => {
       temperatureOutput.textContent = `${response.data.current.temp}°`;
       const iconSrc = `/weather-icons/${response.data.current.weather[0].icon}@2x.png`;
       iconOutput.setAttribute("src", iconSrc);
+      iconOutput.classList.add("icon");
     })
     .catch((error) => {
       console.log(error);
