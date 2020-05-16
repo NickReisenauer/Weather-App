@@ -12,6 +12,9 @@ locationBtn.addEventListener("click", () => {
         weatherAPI(latitude, longitude);
       },
       (error) => {
+        const errorMessage = document.createElement("p");
+        errorMessage.textContent = `Error: ${error.message}`;
+        document.body.appendChild(errorMessage);
         console.log(error);
       }
     );
@@ -43,10 +46,8 @@ const weatherAPI = (lat, long) => {
     .then((response) => {
       console.log(response);
       temperatureOutput.textContent = `${response.data.current.temp}°`;
-      iconOutput.setAttribute(
-        "src",
-        `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`
-      );
+      const iconSrc = `/weather-icons/${response.data.current.weather[0].icon}@2x.png`;
+      iconOutput.setAttribute("src", iconSrc);
     })
     .catch((error) => {
       console.log(error);
