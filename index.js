@@ -47,14 +47,11 @@ const weatherAPI = (lat, long) => {
       console.log(response);
       temperatureOutput.textContent = `${response.data.current.temp}°`;
       const iconSrc = `/weather-icons/${response.data.current.weather[0].icon}@2x.png`;
-      iconOutput.classList.add("icon");
+
       iconOutput.setAttribute("src", iconSrc);
-      iconOutput.style.transition = "all 1s";
+      iconOutput.classList.add("icon");
     })
     .catch((error) => {
       console.log(error);
     });
 };
-
-// Instead of updating the image of the already made element, simply create
-// the element in a different function and prepend it to the container div
