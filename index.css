@@ -56,7 +56,7 @@ p {
 }
 
 input {
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #3e64ff;
@@ -64,7 +64,7 @@ input {
 }
 
 #searchBtn {
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid #3e64ff;
   background-color: #3e64ff;
   color: white;
