@@ -2,8 +2,28 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #48484a;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background: linear-gradient(
+    125deg,
+    #ecfcff 0%,
+    #ecfcff 40%,
+    #b2fcff calc(40% + 1px),
+    #b2fcff 60%,
+    #5edfff calc(60% + 1px),
+    #5edfff 72%,
+    #3e64ff calc(72% + 1px),
+    #3e64ff 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: all 1s;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  height: 100vh;
 }
 
 p {
@@ -18,17 +38,39 @@ p {
   padding: 15px;
   border: none;
   border-radius: 5px;
-  background-color: #61bbdb;
+  /* background-color: #61bbdb; */
+  background-color: #3e64ff;
   color: white;
   font-weight: bold;
-  border: 2px solid #48484a;
+  /* border: 2px solid #48484a; */
+  border: 2px solid white;
 }
 
 .container {
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 30%;
   justify-content: center;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+input {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #3e64ff;
+  margin-right: 10px;
+}
+
+#searchBtn {
+  font-size: 14px;
+  border: 1px solid #3e64ff;
+  background-color: #3e64ff;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .icon {

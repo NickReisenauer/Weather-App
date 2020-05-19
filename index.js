@@ -2,6 +2,9 @@ const locationOutput = document.getElementById("location");
 const temperatureOutput = document.getElementById("temp");
 const iconOutput = document.getElementById("icon");
 const locationBtn = document.getElementById("locationBtn");
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const errorMsg = document.querySelector("#errorMsg");
 
 locationBtn.addEventListener("click", () => {
   if (navigator.geolocation) {
@@ -12,10 +15,8 @@ locationBtn.addEventListener("click", () => {
         weatherAPI(latitude, longitude);
       },
       (error) => {
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent = `Error: ${error.message}`;
-        document.body.appendChild(errorMessage);
         console.log(error);
+        errorMsg.textContent = `Error: ${error.message}. Try refreshing the page.`;
       }
     );
   } else {
@@ -55,3 +56,29 @@ const weatherAPI = (lat, long) => {
       console.log(error);
     });
 };
+
+const geolocate = (input) => {
+  axios
+    .get(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(
+        input
+      )}.json?access_token=pk.eyJ1Ijoibmlja3JlaXNlbmF1ZXIiLCJhIjoiY2s3a3JqY294MDAxYzNobXUwb2UzYzV6biJ9.YQi9oFC0rW41CTNhzHAFng&limit=1`
+    )
+    .then((response) => {
+      const longitude = response.data.features[0].center[0];
+      const latitude = response.data.features[0].center[1];
+      weatherAPI(latitude, longitude);
+      locationOutput.textContent = response.data.features[0].place_name;
+    })
+    .catch((error) => {
+      errorMsg.textContent = `Error: ${input} not found. Try searching again.`;
+      console.log(error);
+    });
+};
+
+form.addEventListener("submit", () => {
+  event.preventDefault();
+  const inputValue = input.value;
+  geolocate(inputValue);
+  input.value = "";
+});
