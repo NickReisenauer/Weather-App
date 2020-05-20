@@ -46,13 +46,28 @@ p {
   border: 2px solid white;
 }
 
+.extraInfoDiv {
+  text-align: center;
+}
+
+.extraInfo {
+  display: inline-block;
+  background-color: #3e64ff;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+#weatherDescription {
+  text-transform: capitalize;
+  margin-top: 0;
+}
+
 .container {
   display: flex;
   align-items: center;
-  height: 30%;
   justify-content: center;
-  padding: 10px;
-  padding-bottom: 20px;
+  padding: 10px 10px 0px 10px;
 }
 
 input {

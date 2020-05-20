@@ -5,6 +5,7 @@ const locationBtn = document.getElementById("locationBtn");
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const errorMsg = document.querySelector("#errorMsg");
+const weatherDescription = document.querySelector("#weatherDescription");
 
 locationBtn.addEventListener("click", () => {
   if (navigator.geolocation) {
@@ -48,9 +49,11 @@ const weatherAPI = (lat, long) => {
       console.log(response);
       temperatureOutput.textContent = `${response.data.current.temp}°`;
       const iconSrc = `/weather-icons/${response.data.current.weather[0].icon}@2x.png`;
-
       iconOutput.setAttribute("src", iconSrc);
       iconOutput.classList.add("icon");
+      // Additional Info
+      weatherDescription.textContent =
+        response.data.current.weather[0].description;
     })
     .catch((error) => {
       console.log(error);
@@ -77,6 +80,7 @@ const geolocate = (input) => {
 };
 
 form.addEventListener("submit", () => {
+  errorMsg.textContent = "";
   event.preventDefault();
   const inputValue = input.value;
   geolocate(inputValue);
