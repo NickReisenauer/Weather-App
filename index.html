@@ -11,8 +11,31 @@
   <body>
     <header></header>
     <main>
-      <!-- Main Container -->
+      <!-- User Inputs -->
+      <div class="userInputs">
+        <!-- <div class="userInputsTwo"> -->
+        <button id="locationBtn">
+          <img
+            src="/img/navigation.svg"
+            alt="Locate me icon"
+            id="locationIcon"
+          />
+          GET MY LOCATION
+        </button>
 
+        <span id="inputSpan"></span>
+
+        <form id="searchForm">
+          <input type="text" placeholder="Search for a location" />
+          <button type="submit" id="searchBtn">SEARCH</button>
+        </form>
+
+        <p id="errorMsg"></p>
+        <!-- </div> -->
+      </div>
+      <!-- /User Inputs -->
+
+      <!-- Main Container -->
       <div class="container">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/1/1a/1x1_placeholder.png"
@@ -24,25 +47,13 @@
           <h3 id="location"></h3>
         </div>
       </div>
+      <!-- /Main Container -->
+
+      <!-- Extra Info -->
       <div class="extraInfoDiv">
         <p id="weatherDescription" class="extraInfo"></p>
       </div>
-
-      <!-- /Main Container -->
-
-      <button id="locationBtn">
-        <img src="/img/navigation.svg" alt="Locate me icon" id="locationIcon" />
-        GET MY LOCATION
-      </button>
-
-      <p>or</p>
-
-      <form id="searchForm">
-        <input type="text" placeholder="Search for a location" />
-        <button type="submit" id="searchBtn">SEARCH</button>
-      </form>
-
-      <p id="errorMsg"></p>
+      <!-- /Extra Info -->
     </main>
     <footer></footer>
   </body>
