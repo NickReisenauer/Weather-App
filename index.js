@@ -6,8 +6,11 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 const errorMsg = document.querySelector("#errorMsg");
 const weatherDescription = document.querySelector("#weatherDescription");
+const sunsetTime = document.getElementById("sunsetTime");
+const sunriseTime = document.getElementById("sunriseTime");
 
 locationBtn.addEventListener("click", () => {
+  errorMsg.textContent = "";
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (response) => {
@@ -52,8 +55,21 @@ const weatherAPI = (lat, long) => {
       iconOutput.setAttribute("src", iconSrc);
       iconOutput.classList.add("icon");
       // Additional Info
+      const timezone = response.data.timezone;
       weatherDescription.textContent =
         response.data.current.weather[0].description;
+
+      // Sunrise Time
+      sunriseTime.textContent = unixToLocal(
+        response.data.current.sunrise,
+        timezone
+      );
+
+      // Sunset Time
+      sunsetTime.textContent = unixToLocal(
+        response.data.current.sunset,
+        timezone
+      );
     })
     .catch((error) => {
       console.log(error);
@@ -86,3 +102,12 @@ form.addEventListener("submit", () => {
   geolocate(inputValue);
   input.value = "";
 });
+
+const unixToLocal = (unix, timezone) => {
+  const date = new Date(unix * 1000);
+  return date.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: timezone,
+  });
+};

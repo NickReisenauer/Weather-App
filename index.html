@@ -13,10 +13,9 @@
     <main>
       <!-- User Inputs -->
       <div class="userInputs">
-        <!-- <div class="userInputsTwo"> -->
         <button id="locationBtn">
           <img
-            src="/img/navigation.svg"
+            src="/icons/navigation.svg"
             alt="Locate me icon"
             id="locationIcon"
           />
@@ -29,10 +28,8 @@
           <input type="text" placeholder="Search for a location" />
           <button type="submit" id="searchBtn">SEARCH</button>
         </form>
-
-        <p id="errorMsg"></p>
-        <!-- </div> -->
       </div>
+      <p id="errorMsg"></p>
       <!-- /User Inputs -->
 
       <!-- Main Container -->
@@ -52,6 +49,11 @@
       <!-- Extra Info -->
       <div class="extraInfoDiv">
         <p id="weatherDescription" class="extraInfo"></p>
+        <p class="extraInfo" id="sunriseP">
+          <img src="/icons/sunrise.svg" alt="Sunrise Icon" id="sunriseIcon" />
+          <span id="sunriseTime"></span>
+        </p>
+        <p id="sunsetTime" class="extraInfo"></p>
       </div>
       <!-- /Extra Info -->
     </main>

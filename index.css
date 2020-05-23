@@ -57,10 +57,7 @@ p {
   align-content: center;
   flex-wrap: wrap;
   margin: 10px;
-}
-
-.userInputsTwo {
-  display: inline-block;
+  margin-top: 0px;
 }
 
 .extraInfoDiv {
@@ -133,4 +130,19 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#sunriseP {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+}
+
+#sunriseIcon {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
 }
